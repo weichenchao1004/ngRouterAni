@@ -1,0 +1,56 @@
+<style>
+    section.user {
+        width: 60%;
+        margin: 1em auto;
+        box-shadow: 0 0 15px 5px gray;
+        padding: 1em;
+    }
+    section.user > h1 {
+        padding: 0 1em;
+        font-weight: 300;
+        float: left;
+        width: 100%;
+        text-transform: uppercase;
+    }
+    div.half {
+        width: 50%;
+        box-sizing: border-box;
+        padding: 0.5em;
+        float: left;
+    }
+    div.half:nth-child(3) {
+        border-left: 1px solid #eee;
+    }
+    div.half:nth-child(2) {
+        text-align: center;
+    }
+    div.half > img {
+        width: 60%;
+        display: inline-block;
+    }
+    div.half > div {
+        margin: 0.3em;
+        padding: 0.3em 0.5em;
+    }
+    .clearfix:after {
+        content: ".";
+        visibility: hidden;
+        display: block;
+        height: 0;
+        clear: both;
+    }
+</style>
+<section class="user clearfix">
+    <h1>{{user.login}}</h1>
+    <div class="half">
+        <img ng-src="{{user.avatar_url}}" alt=""/>
+    </div>
+    <div class="half">
+        <div>Github ID: {{user.id}}</div>
+        <div>On Github since: {{user.created_at}}</div>
+        <div>Followers: {{user.followers}}</div>
+        <div>Number of public repositories: {{user.public_repos}}</div>
+    </div>
+</section>
+
+

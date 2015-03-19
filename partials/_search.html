@@ -1,0 +1,11 @@
+<div>
+    <h1>Search Repositories</h1>
+    <input type="text" ng-model="query" ng-keydown="search($event)"/>
+    <ul>
+        <li ng-repeat="item in items">
+            <a href="{{item.html_url}}" target="_blank">{{item.full_name}}</a>
+            <div><a href="#/users/{{item.owner.login}}">Show User Details ... </a></div>
+            <div>Size: {{item.size}} bytes</div>
+            <div>Score: {{item.score}}</div>
+        </li>
+    </ul>

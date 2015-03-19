@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="bower_components/angular/angular.js"></script>
+
+
+    <script>
+        angular.module('myapp', []).controller('yourController', function ($scope) {
+            $scope.message = 'wei is amazed in this question.';
+        }).filter("capitalize",function() {
+            return function(str){
+               //This is the first method use split and join
+               /* var strArray = str.split(' ');
+                for(var i = 0; i < strArray.length;i++){
+                    strArray[i] = strArray[i].substr(0,1).toUpperCase() + strArray[i].substr(1).toLowerCase();
+                }
+                return strArray.join(' ');
+                */
+
+
+                //This is the second method use regular expression
+                return str.replace(/\b[a-z]/g,
+                        function(str){return str.toUpperCase()});
+            }
+        })
+    </script>
+</head>
+<body>
+<div ng-controller="yourController">
+   <div>{{message|capitalize}}</div>
+</div>
+</body>
+</html>
